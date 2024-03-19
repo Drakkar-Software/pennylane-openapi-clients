@@ -1,0 +1,31 @@
+{
+  "name": "pennylane-openapi-client",
+  "description": "Pennylane openapi client",
+  "version": "0.0.1",
+  "main": "dist/client/typescript/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Drakkar-Software/pennylane-openapi-clients"
+  },
+  "keywords": [
+    "openapi",
+    "client",
+    "typescript",
+    "pennylane"
+  ],
+  "author": "Drakkar-Software",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "generate": "openapi-typescript-codegen --input schema.json --output client/typescript",
+    "start": "node dist/examples/typescript/invoices.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20",
+    "openapi-typescript-codegen": "0.27.0",
+    "prettier": "3.1.0",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@8.15.2"
+}
