@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -3255,6 +3255,690 @@ export class CustomerInvoicesService {
         return this.httpRequest.request({
             method: 'PUT',
             url: '/api/external/v1/customer_invoices/{id}',
+            path: {
+                'id': id,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: `Bad Request`,
+                401: `Access token is missing or invalid`,
+                403: `Forbidden`,
+                404: `Not found`,
+                422: `Unprocessable Entity`,
+            },
+        });
+    }
+    /**
+     * Update Invoice Lines
+     * Update (create, update and delete) invoice lines for a given invoice.
+     * @param id
+     * @param requestBody
+     * @returns any Returns the updated invoice
+     * @throws ApiError
+     */
+    public putExternalApiV1CustomerInvoicesUpdateInvoiceLines(
+        id: string,
+        requestBody?: {
+            invoice_lines?: {
+                create?: Array<({
+                    /**
+                     * Line item label
+                     */
+                    label: string;
+                    /**
+                     * Line item quantity (number of items)
+                     */
+                    quantity: number;
+                    /**
+                     * Has to correspond to the rank number of a line items section in which the line item should be
+                     */
+                    section_rank?: number;
+                    /**
+                     * Line item currency amount, including taxes (in invoice currency).
+                     */
+                    currency_amount: number;
+                    /**
+                     * The accounting plan item for the invoice line
+                     */
+                    plan_item_number?: string;
+                    /**
+                     * Line item unit (type of unit)
+                     */
+                    unit: string;
+                    /**
+                     * Product VAT rate. A 20% VAT in France is FR_200.
+                     */
+                    vat_rate: 'FR_09' | 'FR_21' | 'FR_55' | 'FR_85' | 'FR_100' | 'FR_130' | 'FR_200' | 'AT_100' | 'AT_130' | 'AT_200' | 'BE_60' | 'BE_120' | 'BE_210' | 'BG_90' | 'BG_200' | 'CH_25' | 'CH_37' | 'CH_77' | 'CY_50' | 'CY_90' | 'CY_190' | 'CZ_100' | 'CZ_150' | 'CZ_210' | 'DE_70' | 'DE_190' | 'DK_250' | 'EE_90' | 'EE_200' | 'ES_40' | 'ES_100' | 'ES_210' | 'FI_100' | 'FI_140' | 'FI_240' | 'GB_50' | 'GB_200' | 'GR_60' | 'GR_130' | 'GR_240' | 'HR_50' | 'HR_130' | 'HR_250' | 'HU_50' | 'HU_180' | 'HU_270' | 'IE_48' | 'IE_90' | 'IE_135' | 'IE_210' | 'IE_230' | 'IT_40' | 'IT_50' | 'IT_100' | 'IT_220' | 'LT_50' | 'LT_90' | 'LT_210' | 'LU_30' | 'LU_70' | 'LU_80' | 'LU_130' | 'LU_140' | 'LU_160' | 'LU_170' | 'LV_50' | 'LV_120' | 'LV_210' | 'MC_09' | 'MC_21' | 'MC_55' | 'MC_85' | 'MC_100' | 'MC_200' | 'MT_50' | 'MT_70' | 'MT_180' | 'NL_90' | 'NL_210' | 'PL_50' | 'PL_80' | 'PL_230' | 'PT_60' | 'PT_130' | 'PT_230' | 'RO_50' | 'RO_90' | 'RO_190' | 'SE_60' | 'SE_120' | 'SE_250' | 'SI_50' | 'SI_95' | 'SI_220' | 'SK_100' | 'SK_200' | 'exempt' | 'crossborder' | 'extracom' | 'FR_100_construction' | 'FR_200_construction';
+                    /**
+                     * The description of the invoice line
+                     */
+                    description?: string | null;
+                    /**
+                     * Line item discount (in percent)
+                     */
+                    discount?: number;
+                } | {
+                    /**
+                     * Line item label
+                     */
+                    label: string;
+                    /**
+                     * Line item quantity (number of items)
+                     */
+                    quantity: number;
+                    /**
+                     * Has to correspond to the rank number of a line items section in which the line item should be
+                     */
+                    section_rank?: number;
+                    /**
+                     * Line item currency amount, excluding taxes (in invoice currency).
+                     */
+                    currency_amount_before_tax: number;
+                    /**
+                     * The accounting plan item for the invoice line
+                     */
+                    plan_item_number?: string;
+                    /**
+                     * Line item unit (type of unit)
+                     */
+                    unit: string;
+                    /**
+                     * Product VAT rate. A 20% VAT in France is FR_200.
+                     */
+                    vat_rate: 'FR_09' | 'FR_21' | 'FR_55' | 'FR_85' | 'FR_100' | 'FR_130' | 'FR_200' | 'AT_100' | 'AT_130' | 'AT_200' | 'BE_60' | 'BE_120' | 'BE_210' | 'BG_90' | 'BG_200' | 'CH_25' | 'CH_37' | 'CH_77' | 'CY_50' | 'CY_90' | 'CY_190' | 'CZ_100' | 'CZ_150' | 'CZ_210' | 'DE_70' | 'DE_190' | 'DK_250' | 'EE_90' | 'EE_200' | 'ES_40' | 'ES_100' | 'ES_210' | 'FI_100' | 'FI_140' | 'FI_240' | 'GB_50' | 'GB_200' | 'GR_60' | 'GR_130' | 'GR_240' | 'HR_50' | 'HR_130' | 'HR_250' | 'HU_50' | 'HU_180' | 'HU_270' | 'IE_48' | 'IE_90' | 'IE_135' | 'IE_210' | 'IE_230' | 'IT_40' | 'IT_50' | 'IT_100' | 'IT_220' | 'LT_50' | 'LT_90' | 'LT_210' | 'LU_30' | 'LU_70' | 'LU_80' | 'LU_130' | 'LU_140' | 'LU_160' | 'LU_170' | 'LV_50' | 'LV_120' | 'LV_210' | 'MC_09' | 'MC_21' | 'MC_55' | 'MC_85' | 'MC_100' | 'MC_200' | 'MT_50' | 'MT_70' | 'MT_180' | 'NL_90' | 'NL_210' | 'PL_50' | 'PL_80' | 'PL_230' | 'PT_60' | 'PT_130' | 'PT_230' | 'RO_50' | 'RO_90' | 'RO_190' | 'SE_60' | 'SE_120' | 'SE_250' | 'SI_50' | 'SI_95' | 'SI_220' | 'SK_100' | 'SK_200' | 'exempt' | 'crossborder' | 'extracom' | 'FR_100_construction' | 'FR_200_construction';
+                    /**
+                     * The description of the invoice line
+                     */
+                    description?: string | null;
+                    /**
+                     * Line item discount (in percent)
+                     */
+                    discount?: number;
+                } | {
+                    /**
+                     * Line item label (default is using the product label)
+                     */
+                    label?: string;
+                    /**
+                     * Line item quantity (number of items)
+                     */
+                    quantity: number;
+                    /**
+                     * Line item discount (in percent)
+                     */
+                    discount?: number;
+                    /**
+                     * Has to correspond to the rank number of a line items section in which the line item should be
+                     */
+                    section_rank?: number;
+                    /**
+                     * The accounting plan item for the invoice line (default is using the product plan item)
+                     */
+                    plan_item_number?: string;
+                    product: {
+                        /**
+                         * Existing product identifier (source_id)
+                         */
+                        source_id: string;
+                        /**
+                         * Product price including taxes
+                         */
+                        price?: number;
+                        /**
+                         * Product VAT rate. A 20% VAT in France is FR_200.
+                         */
+                        vat_rate?: 'FR_09' | 'FR_21' | 'FR_55' | 'FR_85' | 'FR_100' | 'FR_130' | 'FR_200' | 'AT_100' | 'AT_130' | 'AT_200' | 'BE_60' | 'BE_120' | 'BE_210' | 'BG_90' | 'BG_200' | 'CH_25' | 'CH_37' | 'CH_77' | 'CY_50' | 'CY_90' | 'CY_190' | 'CZ_100' | 'CZ_150' | 'CZ_210' | 'DE_70' | 'DE_190' | 'DK_250' | 'EE_90' | 'EE_200' | 'ES_40' | 'ES_100' | 'ES_210' | 'FI_100' | 'FI_140' | 'FI_240' | 'GB_50' | 'GB_200' | 'GR_60' | 'GR_130' | 'GR_240' | 'HR_50' | 'HR_130' | 'HR_250' | 'HU_50' | 'HU_180' | 'HU_270' | 'IE_48' | 'IE_90' | 'IE_135' | 'IE_210' | 'IE_230' | 'IT_40' | 'IT_50' | 'IT_100' | 'IT_220' | 'LT_50' | 'LT_90' | 'LT_210' | 'LU_30' | 'LU_70' | 'LU_80' | 'LU_130' | 'LU_140' | 'LU_160' | 'LU_170' | 'LV_50' | 'LV_120' | 'LV_210' | 'MC_09' | 'MC_21' | 'MC_55' | 'MC_85' | 'MC_100' | 'MC_200' | 'MT_50' | 'MT_70' | 'MT_180' | 'NL_90' | 'NL_210' | 'PL_50' | 'PL_80' | 'PL_230' | 'PT_60' | 'PT_130' | 'PT_230' | 'RO_50' | 'RO_90' | 'RO_190' | 'SE_60' | 'SE_120' | 'SE_250' | 'SI_50' | 'SI_95' | 'SI_220' | 'SK_100' | 'SK_200' | 'exempt' | 'crossborder' | 'extracom' | 'FR_100_construction' | 'FR_200_construction';
+                        /**
+                         * Product unit
+                         */
+                        unit?: string;
+                    };
+                })>;
+                /**
+                 * It is not yet possible to update the product of an invoice line. In order to update the product, you must delete the line and recreate it.
+                 */
+                update?: Array<({
+                    /**
+                     * ID of the entry line to delete
+                     */
+                    id: number;
+                    /**
+                     * Line item label
+                     */
+                    label?: string;
+                    /**
+                     * Line item quantity (number of items)
+                     */
+                    quantity?: number;
+                    /**
+                     * Has to correspond to the rank number of a line items section in which the line item should be
+                     */
+                    section_rank?: number;
+                    /**
+                     * Line item currency amount, including taxes (in invoice currency).
+                     */
+                    currency_amount?: number;
+                    /**
+                     * The accounting plan item for the invoice line
+                     */
+                    plan_item_number?: string;
+                    /**
+                     * Line item unit (type of unit)
+                     */
+                    unit?: string;
+                    /**
+                     * Product VAT rate. A 20% VAT in France is FR_200.
+                     */
+                    vat_rate?: 'FR_09' | 'FR_21' | 'FR_55' | 'FR_85' | 'FR_100' | 'FR_130' | 'FR_200' | 'AT_100' | 'AT_130' | 'AT_200' | 'BE_60' | 'BE_120' | 'BE_210' | 'BG_90' | 'BG_200' | 'CH_25' | 'CH_37' | 'CH_77' | 'CY_50' | 'CY_90' | 'CY_190' | 'CZ_100' | 'CZ_150' | 'CZ_210' | 'DE_70' | 'DE_190' | 'DK_250' | 'EE_90' | 'EE_200' | 'ES_40' | 'ES_100' | 'ES_210' | 'FI_100' | 'FI_140' | 'FI_240' | 'GB_50' | 'GB_200' | 'GR_60' | 'GR_130' | 'GR_240' | 'HR_50' | 'HR_130' | 'HR_250' | 'HU_50' | 'HU_180' | 'HU_270' | 'IE_48' | 'IE_90' | 'IE_135' | 'IE_210' | 'IE_230' | 'IT_40' | 'IT_50' | 'IT_100' | 'IT_220' | 'LT_50' | 'LT_90' | 'LT_210' | 'LU_30' | 'LU_70' | 'LU_80' | 'LU_130' | 'LU_140' | 'LU_160' | 'LU_170' | 'LV_50' | 'LV_120' | 'LV_210' | 'MC_09' | 'MC_21' | 'MC_55' | 'MC_85' | 'MC_100' | 'MC_200' | 'MT_50' | 'MT_70' | 'MT_180' | 'NL_90' | 'NL_210' | 'PL_50' | 'PL_80' | 'PL_230' | 'PT_60' | 'PT_130' | 'PT_230' | 'RO_50' | 'RO_90' | 'RO_190' | 'SE_60' | 'SE_120' | 'SE_250' | 'SI_50' | 'SI_95' | 'SI_220' | 'SK_100' | 'SK_200' | 'exempt' | 'crossborder' | 'extracom' | 'FR_100_construction' | 'FR_200_construction';
+                    /**
+                     * The description of the invoice line
+                     */
+                    description?: string | null;
+                    /**
+                     * Line item discount (in percent)
+                     */
+                    discount?: number;
+                } | {
+                    /**
+                     * ID of the entry line to delete
+                     */
+                    id: number;
+                    /**
+                     * Line item label
+                     */
+                    label?: string;
+                    /**
+                     * Line item quantity (number of items)
+                     */
+                    quantity?: number;
+                    /**
+                     * Has to correspond to the rank number of a line items section in which the line item should be
+                     */
+                    section_rank?: number;
+                    /**
+                     * Line item currency amount, excluding taxes (in invoice currency).
+                     */
+                    currency_amount_before_tax?: number;
+                    /**
+                     * The accounting plan item for the invoice line
+                     */
+                    plan_item_number?: string;
+                    /**
+                     * Line item unit (type of unit)
+                     */
+                    unit?: string;
+                    /**
+                     * Product VAT rate. A 20% VAT in France is FR_200.
+                     */
+                    vat_rate?: 'FR_09' | 'FR_21' | 'FR_55' | 'FR_85' | 'FR_100' | 'FR_130' | 'FR_200' | 'AT_100' | 'AT_130' | 'AT_200' | 'BE_60' | 'BE_120' | 'BE_210' | 'BG_90' | 'BG_200' | 'CH_25' | 'CH_37' | 'CH_77' | 'CY_50' | 'CY_90' | 'CY_190' | 'CZ_100' | 'CZ_150' | 'CZ_210' | 'DE_70' | 'DE_190' | 'DK_250' | 'EE_90' | 'EE_200' | 'ES_40' | 'ES_100' | 'ES_210' | 'FI_100' | 'FI_140' | 'FI_240' | 'GB_50' | 'GB_200' | 'GR_60' | 'GR_130' | 'GR_240' | 'HR_50' | 'HR_130' | 'HR_250' | 'HU_50' | 'HU_180' | 'HU_270' | 'IE_48' | 'IE_90' | 'IE_135' | 'IE_210' | 'IE_230' | 'IT_40' | 'IT_50' | 'IT_100' | 'IT_220' | 'LT_50' | 'LT_90' | 'LT_210' | 'LU_30' | 'LU_70' | 'LU_80' | 'LU_130' | 'LU_140' | 'LU_160' | 'LU_170' | 'LV_50' | 'LV_120' | 'LV_210' | 'MC_09' | 'MC_21' | 'MC_55' | 'MC_85' | 'MC_100' | 'MC_200' | 'MT_50' | 'MT_70' | 'MT_180' | 'NL_90' | 'NL_210' | 'PL_50' | 'PL_80' | 'PL_230' | 'PT_60' | 'PT_130' | 'PT_230' | 'RO_50' | 'RO_90' | 'RO_190' | 'SE_60' | 'SE_120' | 'SE_250' | 'SI_50' | 'SI_95' | 'SI_220' | 'SK_100' | 'SK_200' | 'exempt' | 'crossborder' | 'extracom' | 'FR_100_construction' | 'FR_200_construction';
+                    /**
+                     * The description of the invoice line
+                     */
+                    description?: string | null;
+                    /**
+                     * Line item discount (in percent)
+                     */
+                    discount?: number;
+                })>;
+                delete?: Array<{
+                    /**
+                     * ID of the entry line to delete
+                     */
+                    id: number;
+                }>;
+            };
+        },
+    ): CancelablePromise<{
+        invoice?: {
+            /**
+             * Invoice identifier
+             */
+            id?: string;
+            label?: string | null;
+            invoice_number?: string | null;
+            /**
+             * Two invoices having the same quote_group_uuid are linked together
+             */
+            quote_group_uuid?: string;
+            /**
+             * Invoice draft status (set to True if the invoice is a draft)
+             */
+            is_draft?: boolean;
+            /**
+             * Invoice estimate status (set to True if the document is an estimate, False if it's an invoice)
+             */
+            is_estimate?: boolean;
+            /**
+             * Invoice currency code (ISO 4217)
+             */
+            currency?: string;
+            /**
+             * Invoice amount (total value of the invoice in euros. If the currency is euro, Currency Amount and Invoice Amount are identical)
+             */
+            amount?: string;
+            /**
+             * Invoice currency amount (total value of the invoice in the currency of the invoice)
+             */
+            currency_amount?: string;
+            /**
+             * Invoice currency amount before tax (total value before tax of the invoice in the currency of the invoice)
+             */
+            currency_amount_before_tax?: string;
+            /**
+             * Invoice exchange rate (used to convert the invoice to euros. If the invoice currency is euro it will be 1.0)
+             */
+            exchange_rate?: number;
+            /**
+             * Invoice issue date (ISO 8601)
+             */
+            date?: string | null;
+            /**
+             * Invoice payment deadline (ISO 8601)
+             */
+            deadline?: string | null;
+            /**
+             * Invoice taxable amount (in invoice currency)
+             */
+            currency_tax?: string;
+            /**
+             * Language of the invoice. The locale region is separated by an underscore like in "fr_FR".
+             */
+            language?: 'fr_FR' | 'en_GB';
+            /**
+             * Invoice paid status (set to True if the invoice is paid)
+             */
+            paid?: boolean;
+            /**
+             * Invoice payment date
+             */
+            fully_paid_at?: string | null;
+            /**
+             * Invoice status
+             */
+            status?: string | null;
+            /**
+             * Invoice discount (which is a percentage if the discount_type is "relative", or an amount if the discount_type is "absolute")
+             */
+            discount?: string;
+            /**
+             * Invoice discount Type (relative if it is a percentage of the total or absolute if it is an amount)
+             */
+            discount_type?: string;
+            /**
+             * Public url of the invoice
+             */
+            public_url?: string;
+            /**
+             * If there's a file attached to the invoice, this is the link of the file
+             */
+            file_url?: string | null;
+            /**
+             * Name of the file attached to the invoice
+             */
+            filename?: any;
+            /**
+             * The remaining amount to pay for the invoice to be considered paid
+             */
+            remaining_amount?: string;
+            /**
+             * Where the invoice is coming from, here are the different values:
+             * - quotes: Created directly from the editor
+             * - stripe: Imported from Stripe
+             * - other: Other cases
+             *
+             */
+            source?: string;
+            /**
+             * Additional details
+             */
+            special_mention?: string | null;
+            /**
+             * The last time the invoice has been updated
+             */
+            updated_at?: string;
+            imputation_dates: {
+                /**
+                 * Start date of the imputation period (ISO 8601)
+                 */
+                start_date: string;
+                /**
+                 * End date of the imputation period (ISO 8601)
+                 */
+                end_date: string;
+            } | null;
+            customer?: ({
+                /**
+                 * Company name
+                 */
+                name: string;
+                /**
+                 * Type of the customer. Must be company
+                 */
+                customer_type: 'company';
+                /**
+                 * Customer registration number (SIREN)
+                 */
+                reg_no?: string;
+                billing_address: {
+                    /**
+                     * Customer address (billing address)
+                     */
+                    address?: string;
+                    /**
+                     * Postal code (billing address)
+                     */
+                    postal_code?: string;
+                    /**
+                     * City (billing address)
+                     */
+                    city?: string;
+                    /**
+                     * Country alpha code (billing address)
+                     */
+                    country_alpha2?: string;
+                };
+                delivery_address: {
+                    /**
+                     * Customer address (billing address)
+                     */
+                    address?: string;
+                    /**
+                     * Postal code (billing address)
+                     */
+                    postal_code?: string;
+                    /**
+                     * City (billing address)
+                     */
+                    city?: string;
+                    /**
+                     * Country alpha code (billing address)
+                     */
+                    country_alpha2?: string;
+                };
+                /**
+                 * Recipient displayed in the invoice
+                 */
+                recipient?: string;
+                /**
+                 * Customer's VAT number
+                 */
+                vat_number?: string;
+                /**
+                 * You can use your own id when creating the customer. If not provided, Pennylane will pick one for you. Id must be unique
+                 */
+                source_id: string;
+                emails?: Array<string>;
+                /**
+                 * The billing IBAN of the customer. This is the iban on which you wish to receive payment from this customer.
+                 */
+                billing_iban?: string | null;
+                /**
+                 * Customer payment conditions
+                 */
+                payment_conditions?: 'upon_receipt' | 'custom' | '15_days' | '30_days' | '45_days' | '60_days';
+                /**
+                 * Customer phone number
+                 */
+                phone?: string;
+                /**
+                 * This reference doesn't appear on the invoice
+                 */
+                reference?: string;
+                /**
+                 * Notes about the customer
+                 */
+                notes?: string | null;
+                plan_item?: {
+                    label?: string;
+                    enabled?: boolean;
+                    vat_rate?: string;
+                    country_alpha2?: string;
+                    description?: string;
+                } | null;
+            } | {
+                /**
+                 * Type of the customer. Must be individual
+                 */
+                customer_type: 'individual';
+                /**
+                 * Customer full name
+                 */
+                name: string;
+                /**
+                 * Customer first name
+                 */
+                first_name: string;
+                /**
+                 * Customer last name
+                 */
+                last_name: string;
+                /**
+                 * Customer gender
+                 */
+                gender: 'mister' | 'madam';
+                billing_address?: {
+                    /**
+                     * Customer address (billing address)
+                     */
+                    address?: string;
+                    /**
+                     * Postal code (billing address)
+                     */
+                    postal_code?: string;
+                    /**
+                     * City (billing address)
+                     */
+                    city?: string;
+                    /**
+                     * Country alpha code (billing address)
+                     */
+                    country_alpha2?: string;
+                };
+                delivery_address?: {
+                    /**
+                     * Customer address (billing address)
+                     */
+                    address?: string;
+                    /**
+                     * Postal code (billing address)
+                     */
+                    postal_code?: string;
+                    /**
+                     * City (billing address)
+                     */
+                    city?: string;
+                    /**
+                     * Country alpha code (billing address)
+                     */
+                    country_alpha2?: string;
+                };
+                /**
+                 * You can use your own id when creating the customer. If not provided, Pennylane will pick one for you. Id must be unique
+                 */
+                source_id: string;
+                emails?: Array<string>;
+                /**
+                 * The billing IBAN of the customer. This is the iban on which you wish to receive payment from this customer.
+                 */
+                billing_iban?: string | null;
+                /**
+                 * Customer payment conditions
+                 */
+                payment_conditions?: 'upon_receipt' | 'custom' | '15_days' | '30_days' | '45_days' | '60_days';
+                /**
+                 * Customer phone number
+                 */
+                phone?: string;
+                /**
+                 * This reference doesn't appear on the invoice
+                 */
+                reference?: string;
+                /**
+                 * Notes about the customer
+                 */
+                notes?: string | null;
+                plan_item?: {
+                    label?: string;
+                    enabled?: boolean;
+                    vat_rate?: string;
+                    country_alpha2?: string;
+                    description?: string;
+                } | null;
+            });
+            line_items_sections_attributes?: Array<{
+                /**
+                 * Title of the line items section
+                 */
+                title?: string | null;
+                /**
+                 * Description of the line items section
+                 */
+                description?: string | null;
+                /**
+                 * Defines the order in which sections will be displayed on the invoice. Each section has to have a different rank, starting from 1 and incrementing next values by 1
+                 */
+                rank?: number;
+            }>;
+            line_items?: Array<{
+                /**
+                 * Line item id
+                 */
+                id?: number;
+                /**
+                 * Line item label
+                 */
+                label?: string;
+                /**
+                 * The kind of unit which applies to the amount
+                 */
+                unit?: string | null;
+                /**
+                 * Line item quantity (number of items)
+                 */
+                quantity?: string;
+                /**
+                 * The total amount of the document items in euros including taxes and deducting discounts
+                 */
+                amount?: string;
+                /**
+                 * The total amount of the document items in the document's currency including taxes and deducting discounts.
+                 * If the currency is euro, amount and currencyAmount are identical.
+                 *
+                 */
+                currency_amount?: string;
+                /**
+                 * Line item description
+                 */
+                description?: string;
+                /**
+                 * Line item product id
+                 */
+                product_id?: string | null;
+                /**
+                 * Product VAT rate. A 20% VAT in France is FR_200.
+                 */
+                vat_rate?: 'FR_09' | 'FR_21' | 'FR_55' | 'FR_85' | 'FR_100' | 'FR_130' | 'FR_200' | 'AT_100' | 'AT_130' | 'AT_200' | 'BE_60' | 'BE_120' | 'BE_210' | 'BG_90' | 'BG_200' | 'CH_25' | 'CH_37' | 'CH_77' | 'CY_50' | 'CY_90' | 'CY_190' | 'CZ_100' | 'CZ_150' | 'CZ_210' | 'DE_70' | 'DE_190' | 'DK_250' | 'EE_90' | 'EE_200' | 'ES_40' | 'ES_100' | 'ES_210' | 'FI_100' | 'FI_140' | 'FI_240' | 'GB_50' | 'GB_200' | 'GR_60' | 'GR_130' | 'GR_240' | 'HR_50' | 'HR_130' | 'HR_250' | 'HU_50' | 'HU_180' | 'HU_270' | 'IE_48' | 'IE_90' | 'IE_135' | 'IE_210' | 'IE_230' | 'IT_40' | 'IT_50' | 'IT_100' | 'IT_220' | 'LT_50' | 'LT_90' | 'LT_210' | 'LU_30' | 'LU_70' | 'LU_80' | 'LU_130' | 'LU_140' | 'LU_160' | 'LU_170' | 'LV_50' | 'LV_120' | 'LV_210' | 'MC_09' | 'MC_21' | 'MC_55' | 'MC_85' | 'MC_100' | 'MC_200' | 'MT_50' | 'MT_70' | 'MT_180' | 'NL_90' | 'NL_210' | 'PL_50' | 'PL_80' | 'PL_230' | 'PT_60' | 'PT_130' | 'PT_230' | 'RO_50' | 'RO_90' | 'RO_190' | 'SE_60' | 'SE_120' | 'SE_250' | 'SI_50' | 'SI_95' | 'SI_220' | 'SK_100' | 'SK_200' | 'exempt' | 'crossborder' | 'extracom' | 'FR_100_construction' | 'FR_200_construction';
+                /**
+                 * Total amount before tax in currency
+                 */
+                currency_price_before_tax?: string;
+                /**
+                 * Total tax amount in currency
+                 */
+                currency_tax?: string;
+                /**
+                 * Unit price (excluding tax)
+                 */
+                raw_currency_unit_price?: string;
+                /**
+                 * Line item discount (which is a percentage if the discount_type is "relative", or an amount if the discount_type is "absolute")
+                 */
+                discount?: string;
+                /**
+                 * Line item discount Type (relative if it is a percentage of the total or absolute if it is an amount)
+                 */
+                discount_type?: string;
+                /**
+                 * Defines the order in which line items will be displayed on the invoice. Each line item has to have a different rank, starting from 1 and incrementing next values by 1
+                 */
+                section_rank?: number | null;
+            }>;
+            categories?: Array<{
+                /**
+                 * Category identifier (is unique)
+                 */
+                source_id: string;
+                /**
+                 * Category weight (0.8 means 80%)
+                 */
+                weight: string;
+                /**
+                 * Category name (is unique per group of categories)
+                 */
+                label: string;
+                direction: 'cash_in' | 'cash_out' | null;
+                /**
+                 * Category created date
+                 */
+                created_at: string;
+                /**
+                 * Category created date
+                 */
+                updated_at: string;
+            }>;
+            /**
+             * By adding this field you can automatically reconciliate the newly created (or imported) invoice with a transaction using transactions payment reference (Currently only stripe and invoice_number matching is supported)
+             */
+            transactions_reference?: {
+                /**
+                 * The banking provider for the transaction
+                 */
+                banking_provider: string | null;
+                /**
+                 * Name of the field that you want to match
+                 */
+                provider_field_name: string | null;
+                /**
+                 * Value that you want to match
+                 */
+                provider_field_value: string | null;
+            } | null;
+            payments?: Array<{
+                /**
+                 * Payment label
+                 */
+                label?: string;
+                /**
+                 * Payment created date
+                 */
+                created_at?: string;
+                /**
+                 * Payment amount
+                 */
+                currency_amount?: string;
+            }> | null;
+            matched_transactions?: Array<{
+                /**
+                 * Transaction Label
+                 */
+                label?: string | null;
+                amount?: string | null;
+                group_uuid?: string;
+                date?: string | null;
+                fee?: string | null;
+                currency?: string;
+            }> | null;
+            pdf_invoice_free_text?: string;
+            pdf_invoice_subject?: string;
+            billing_subscription?: {
+                id?: number;
+            } | null;
+        };
+    }> {
+        return this.httpRequest.request({
+            method: 'PUT',
+            url: '/api/external/v1/customer_invoices/{id}/update_invoice_lines',
             path: {
                 'id': id,
             },
