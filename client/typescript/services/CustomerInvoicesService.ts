@@ -3270,8 +3270,8 @@ export class CustomerInvoicesService {
         });
     }
     /**
-     * Update Invoice Lines
-     * Update (create, update and delete) invoice lines for a given invoice.
+     * Edit Invoice Lines
+     * Edit (create and delete) invoice lines for a given invoice. It is not possible to update existing invoice lines. Delete and recreate them using this endpoint.
      * @param id
      * @param requestBody
      * @returns any Returns the updated invoice
@@ -3280,7 +3280,7 @@ export class CustomerInvoicesService {
     public putExternalApiV1CustomerInvoicesUpdateInvoiceLines(
         id: string,
         requestBody?: {
-            invoice_lines?: {
+            invoice_lines: {
                 create?: Array<({
                     /**
                      * Line item label
@@ -3394,92 +3394,6 @@ export class CustomerInvoicesService {
                          */
                         unit?: string;
                     };
-                })>;
-                /**
-                 * It is not yet possible to update the product of an invoice line. In order to update the product, you must delete the line and recreate it.
-                 */
-                update?: Array<({
-                    /**
-                     * ID of the entry line to delete
-                     */
-                    id: number;
-                    /**
-                     * Line item label
-                     */
-                    label?: string;
-                    /**
-                     * Line item quantity (number of items)
-                     */
-                    quantity?: number;
-                    /**
-                     * Has to correspond to the rank number of a line items section in which the line item should be
-                     */
-                    section_rank?: number;
-                    /**
-                     * Line item currency amount, including taxes (in invoice currency).
-                     */
-                    currency_amount?: number;
-                    /**
-                     * The accounting plan item for the invoice line
-                     */
-                    plan_item_number?: string;
-                    /**
-                     * Line item unit (type of unit)
-                     */
-                    unit?: string;
-                    /**
-                     * Product VAT rate. A 20% VAT in France is FR_200.
-                     */
-                    vat_rate?: 'FR_09' | 'FR_21' | 'FR_55' | 'FR_85' | 'FR_100' | 'FR_130' | 'FR_200' | 'AT_100' | 'AT_130' | 'AT_200' | 'BE_60' | 'BE_120' | 'BE_210' | 'BG_90' | 'BG_200' | 'CH_25' | 'CH_37' | 'CH_77' | 'CY_50' | 'CY_90' | 'CY_190' | 'CZ_100' | 'CZ_150' | 'CZ_210' | 'DE_70' | 'DE_190' | 'DK_250' | 'EE_90' | 'EE_200' | 'ES_40' | 'ES_100' | 'ES_210' | 'FI_100' | 'FI_140' | 'FI_240' | 'GB_50' | 'GB_200' | 'GR_60' | 'GR_130' | 'GR_240' | 'HR_50' | 'HR_130' | 'HR_250' | 'HU_50' | 'HU_180' | 'HU_270' | 'IE_48' | 'IE_90' | 'IE_135' | 'IE_210' | 'IE_230' | 'IT_40' | 'IT_50' | 'IT_100' | 'IT_220' | 'LT_50' | 'LT_90' | 'LT_210' | 'LU_30' | 'LU_70' | 'LU_80' | 'LU_130' | 'LU_140' | 'LU_160' | 'LU_170' | 'LV_50' | 'LV_120' | 'LV_210' | 'MC_09' | 'MC_21' | 'MC_55' | 'MC_85' | 'MC_100' | 'MC_200' | 'MT_50' | 'MT_70' | 'MT_180' | 'NL_90' | 'NL_210' | 'PL_50' | 'PL_80' | 'PL_230' | 'PT_60' | 'PT_130' | 'PT_230' | 'RO_50' | 'RO_90' | 'RO_190' | 'SE_60' | 'SE_120' | 'SE_250' | 'SI_50' | 'SI_95' | 'SI_220' | 'SK_100' | 'SK_200' | 'exempt' | 'crossborder' | 'extracom' | 'FR_100_construction' | 'FR_200_construction';
-                    /**
-                     * The description of the invoice line
-                     */
-                    description?: string | null;
-                    /**
-                     * Line item discount (in percent)
-                     */
-                    discount?: number;
-                } | {
-                    /**
-                     * ID of the entry line to delete
-                     */
-                    id: number;
-                    /**
-                     * Line item label
-                     */
-                    label?: string;
-                    /**
-                     * Line item quantity (number of items)
-                     */
-                    quantity?: number;
-                    /**
-                     * Has to correspond to the rank number of a line items section in which the line item should be
-                     */
-                    section_rank?: number;
-                    /**
-                     * Line item currency amount, excluding taxes (in invoice currency).
-                     */
-                    currency_amount_before_tax?: number;
-                    /**
-                     * The accounting plan item for the invoice line
-                     */
-                    plan_item_number?: string;
-                    /**
-                     * Line item unit (type of unit)
-                     */
-                    unit?: string;
-                    /**
-                     * Product VAT rate. A 20% VAT in France is FR_200.
-                     */
-                    vat_rate?: 'FR_09' | 'FR_21' | 'FR_55' | 'FR_85' | 'FR_100' | 'FR_130' | 'FR_200' | 'AT_100' | 'AT_130' | 'AT_200' | 'BE_60' | 'BE_120' | 'BE_210' | 'BG_90' | 'BG_200' | 'CH_25' | 'CH_37' | 'CH_77' | 'CY_50' | 'CY_90' | 'CY_190' | 'CZ_100' | 'CZ_150' | 'CZ_210' | 'DE_70' | 'DE_190' | 'DK_250' | 'EE_90' | 'EE_200' | 'ES_40' | 'ES_100' | 'ES_210' | 'FI_100' | 'FI_140' | 'FI_240' | 'GB_50' | 'GB_200' | 'GR_60' | 'GR_130' | 'GR_240' | 'HR_50' | 'HR_130' | 'HR_250' | 'HU_50' | 'HU_180' | 'HU_270' | 'IE_48' | 'IE_90' | 'IE_135' | 'IE_210' | 'IE_230' | 'IT_40' | 'IT_50' | 'IT_100' | 'IT_220' | 'LT_50' | 'LT_90' | 'LT_210' | 'LU_30' | 'LU_70' | 'LU_80' | 'LU_130' | 'LU_140' | 'LU_160' | 'LU_170' | 'LV_50' | 'LV_120' | 'LV_210' | 'MC_09' | 'MC_21' | 'MC_55' | 'MC_85' | 'MC_100' | 'MC_200' | 'MT_50' | 'MT_70' | 'MT_180' | 'NL_90' | 'NL_210' | 'PL_50' | 'PL_80' | 'PL_230' | 'PT_60' | 'PT_130' | 'PT_230' | 'RO_50' | 'RO_90' | 'RO_190' | 'SE_60' | 'SE_120' | 'SE_250' | 'SI_50' | 'SI_95' | 'SI_220' | 'SK_100' | 'SK_200' | 'exempt' | 'crossborder' | 'extracom' | 'FR_100_construction' | 'FR_200_construction';
-                    /**
-                     * The description of the invoice line
-                     */
-                    description?: string | null;
-                    /**
-                     * Line item discount (in percent)
-                     */
-                    discount?: number;
                 })>;
                 delete?: Array<{
                     /**
