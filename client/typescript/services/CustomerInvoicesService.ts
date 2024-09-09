@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -2764,6 +2764,16 @@ export class CustomerInvoicesService {
                      */
                     amount?: number;
                 }>;
+                imputation_dates?: {
+                    /**
+                     * Start date of the imputation period (ISO 8601)
+                     */
+                    start_date: string;
+                    /**
+                     * End date of the imputation period (ISO 8601)
+                     */
+                    end_date: string;
+                } | null;
                 line_items?: Array<({
                     /**
                      * Line item label

@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -1201,10 +1201,9 @@ export class BillingSubscriptionsService {
                  * Mode in which the new invoices will be created
                  * "awaiting_validation" means draft invoices will be created.
                  * "finalized" means finalized invoices will be created.
-                 * "email" means finalized invoices will be created and automatically sent to the client at each new occurrence.
                  *
                  */
-                mode?: 'awaiting_validation' | 'finalized' | 'email';
+                mode?: 'awaiting_validation' | 'finalized';
                 /**
                  * Start date (ISO 8601)
                  */
